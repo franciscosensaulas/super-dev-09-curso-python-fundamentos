@@ -5,7 +5,7 @@ import requests
 
 url_base = "https://api.franciscosensaulas.com"
 
-# Consultar categorias
+# Consultar categorias 
 
 def consultar_categorias():
     url = f"{url_base}/api/v1/biblioteca/categorias"
