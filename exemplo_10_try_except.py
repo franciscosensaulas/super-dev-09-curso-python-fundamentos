@@ -21,7 +21,6 @@ def exemplo_com_tratamento_conversao():
         print("Número digitado: ", numero)
     except ValueError:
         print("Texto digitado não é um número válido")
-        # print("Não foi possível converter o número para inteiro")
     print("Acabou")
 
 
@@ -51,5 +50,4 @@ def exemplo_mensagem_erro():
 
 # Ponto de entrada da aplicação, deve ter um único da aplicação inteira
 if __name__ == "__main__":
-    # exemplo_sem_tratamento()
     exemplo_mensagem_erro()
