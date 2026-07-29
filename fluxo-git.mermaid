@@ -1,0 +1,50 @@
+flowchart TD
+    A([Início]) --> B[Atualizar a branch main]
+    B --> C[git checkout main]
+    C --> D[git pull origin main]
+
+    D --> E[Criar uma branch de feature]
+    E --> F[git checkout -b feature/nome-da-feature]
+
+    F --> G[Desenvolver a funcionalidade]
+    G --> H[Testar as alterações]
+
+    H --> I{Os testes passaram?}
+
+    I -- Não --> G
+    I -- Sim --> J[Adicionar arquivos ao stage<br/>git add .]
+
+    J --> K[Realizar commit<br/>git commit -m mensagem]
+    K --> L[Enviar a branch para o repositório<br/>git push origin feature/nome-da-feature]
+
+    L --> M[Criar Pull Request<br/>feature → main]
+    M --> N[Revisão do código]
+
+    N --> O{Resultado da revisão}
+
+    O -- Aprovar --> P[Pull Request aprovado]
+    O -- Requisitar modificações --> Q[Revisor solicita alterações]
+    O -- Rejeitar --> R[Pull Request rejeitado ou fechado]
+
+    Q --> S[Desenvolvedor realiza as modificações]
+    S --> T[Testar novamente]
+    T --> U[Realizar novo commit]
+    U --> V[Enviar alterações com git push]
+    V --> N
+
+    P --> W{PR está atualizado<br/>com a main?}
+
+    W -- Não --> X[Atualizar a branch de feature<br/>com a branch main]
+    X --> Y[Resolver possíveis conflitos]
+    Y --> Z[Testar após resolver conflitos]
+    Z --> AA[Commit e push das correções]
+    AA --> N
+
+    W -- Sim --> AB[Fazer merge do Pull Request]
+    AB --> AC[Alterações incorporadas na main]
+    AC --> AD[Excluir branch de feature]
+    AD --> AE([Fim])
+
+    R --> AF{A feature será corrigida?}
+    AF -- Sim --> S
+    AF -- Não --> AE
