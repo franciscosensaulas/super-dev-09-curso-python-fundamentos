@@ -39,6 +39,7 @@ def exemplo_com_multiplos_tratamentos():
 
     print("Obrigado por utilizar nosso sistema")
 
+
 def exemplo_mensagem_erro():
     try:
         aluno = {"nome": "Pedro", "nota1": 9.75}
